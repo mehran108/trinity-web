@@ -1,99 +1,24 @@
-<div class="card-wrapper d-flex align-items-start">
-  <img src="../../../assets/images/img1.png" alt="" class="img-start">
+<div class="card-wrapper d-flex align-items-start" *ngFor="let i of cardData">
+  <img src="{{i.mainimg}}" alt="" class="img-start">
   <div class="card-content">
     <div class="card-content-top d-flex align-items-center justify-content-between">
       <div class="card-top-left">
-        <h2>Children at Play, no.1</h2>
-        <span>Composer: Bartok</span>
+        <h2>{{i.title}}</h2>
+        <span>{{i.subtitle}}</span>
       </div>
       <div class="card-top-right d-flex flex-column align-items-center">
-        <button class="btn green">Grade 2</button>
+        <button class="btn {{i.btnclassname}}">{{i.btntext}}</button>
       </div>
     </div>
     <div class="card-content-bottom d-flex align-items-center justify-content-between">
       <div class="card-bottom-left">
-        <span>Syllabus: <a href="#">Piano 2021-2023</a></span>
-        <span>Book: <a href="#">Piano Exam</a></span>
-        <span>Catalogue number: TCL020253 / TCL020253</span>
+        <span>{{i.titlesyllabus}} <a href="#">{{i.titlesyllabusanchor}}</a></span>
+        <span>{{i.titlebook}} <a href="#">{{i.titlebookanchor}}</a></span>
+        <span>{{i.titlenumber}}</span>
       </div>
       <div class="card-botttom-right d-flex align-items-center">
-       <img src="../../../assets/images/logo1.png" alt="">
-       <img src="../../../assets/images/logo2.png" alt="">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card-wrapper d-flex align-items-start">
-  <img src="../../../assets/images/img1.png" alt="" class="img-start">
-  <div class="card-content">
-    <div class="card-content-top d-flex align-items-center justify-content-between">
-      <div class="card-top-left">
-        <h2>Children at Play, no.1</h2>
-        <span>Composer: Bartok</span>
-      </div>
-      <div class="card-top-right d-flex flex-column align-items-center">
-        <button class="btn">Grade 2</button>
-      </div>
-    </div>
-    <div class="card-content-bottom d-flex align-items-center justify-content-between">
-      <div class="card-bottom-left">
-        <span>Syllabus: <a href="#">Piano 2021-2023</a></span>
-        <span>Book: <a href="#">Piano Exam</a></span>
-        <span>Catalogue number: TCL020253 / TCL020253</span>
-      </div>
-      <div class="card-botttom-right d-flex align-items-center">
-       <img src="../../../assets/images/logo1.png" alt="">
-       <img src="../../../assets/images/logo2.png" alt="">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card-wrapper d-flex align-items-start">
-  <img src="../../../assets/images/img1.png" alt="" class="img-start">
-  <div class="card-content">
-    <div class="card-content-top d-flex align-items-center justify-content-between">
-      <div class="card-top-left">
-        <h2>Children at Play, no.1</h2>
-        <span>Composer: Bartok</span>
-      </div>
-      <div class="card-top-right d-flex flex-column align-items-center">
-        <button class="btn blue">Grade 2</button>
-      </div>
-    </div>
-    <div class="card-content-bottom d-flex align-items-center justify-content-between">
-      <div class="card-bottom-left">
-        <span>Syllabus: <a href="#">Piano 2021-2023</a></span>
-        <span>Book: <a href="#">Piano Exam</a></span>
-        <span>Catalogue number: TCL020253 / TCL020253</span>
-      </div>
-      <div class="card-botttom-right d-flex align-items-center">
-       <img src="../../../assets/images/logo1.png" alt="">
-       <img src="../../../assets/images/logo2.png" alt="">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card-wrapper d-flex align-items-start">
-  <img src="../../../assets/images/img1.png" alt="" class="img-start">
-  <div class="card-content">
-    <div class="card-content-top d-flex align-items-center justify-content-between">
-      <div class="card-top-left">
-        <h2>Children at Play, no.1</h2>
-        <span>Composer: Bartok</span>
-      </div>
-      <div class="card-top-right d-flex flex-column align-items-center">
-        <button class="btn yellow">Grade 2</button>
-      </div>
-    </div>
-    <div class="card-content-bottom d-flex align-items-center justify-content-between">
-      <div class="card-bottom-left">
-        <span>Syllabus: <a href="#">Piano 2021-2023</a></span>
-        <span>Book: <a href="#">Piano Exam</a></span>
-        <span>Catalogue number: TCL020253 / TCL020253</span>
-      </div>
-      <div class="card-botttom-right d-flex align-items-center">
-       <img src="../../../assets/images/logo1.png" alt="">
-       <img src="../../../assets/images/logo2.png" alt="">
+       <img src="{{i.spotifyimg}}" alt="">
+       <img src="{{i.youtubeimg}}" alt="">
       </div>
     </div>
   </div>
