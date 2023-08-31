@@ -1,0 +1,29 @@
+<section class="instrument-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="instrument d-flex flex-column align-items-center justify-content-center">
+          <span>{{instrument}}</span>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Piano</option>
+            <option value="1">Piano1</option>
+            <option value="2">Piano2</option>
+            <option value="3">Piano3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="grades d-flex flex-column align-items-center">
+          <span>{{grades}}</span>
+          <ul class="m-0 p-0 d-flex align-items-center list-unstyled">
+            <li *ngFor="let i of data" class="{{i.classname}}">
+              {{i.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
