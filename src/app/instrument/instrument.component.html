@@ -4,11 +4,8 @@
       <div class="col-12">
         <div class="instrument d-flex flex-column align-items-center justify-content-center">
           <span>{{instrument}}</span>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Piano</option>
-            <option value="1">Piano1</option>
-            <option value="2">Piano2</option>
-            <option value="3">Piano3</option>
+          <select [(ngModel)]="instrument_Id" [ngModelOptions]="{standalone: true}" class="form-select">
+            <option *ngFor="let ins of instrumentList" [value]="ins.instrument_Id">{{ins.instrumentName}}</option>
           </select>
         </div>
       </div>
@@ -18,7 +15,7 @@
         <div class="grades d-flex flex-column align-items-center">
           <span>{{grades}}</span>
           <ul class="m-0 p-0 d-flex align-items-center list-unstyled">
-            <li (click)="i.active=!i.active" *ngFor="let i of data" [class.active]="i.active">
+            <li (click)="onGradeChange(i)" *ngFor="let i of data" [class.active]="i.active">
               {{i.name}}
             </li>
           </ul>

@@ -1,15 +1,16 @@
+<app-instrument (onFilterChange)="fetchData($event)"></app-instrument>
 <section class="list-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <div class="d-flex align-items-center justify-content-end list-input">
-          <input type="text" placeholder="Search by composer or title..." name="" id="">
+          <input (input)="onFilter($event.target)" type="text" placeholder="Search by composer or title..." name="" id="">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <app-list-card></app-list-card>
+        <app-list-card [filters]="filters"></app-list-card>
       </div>
     </div>
   </div>

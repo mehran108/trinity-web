@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TrinityService } from '../trinity.service';
 
 export interface GradesList {
@@ -17,12 +17,13 @@ export class InstrumentComponent implements OnInit {
   grades = 'Grades / Diplomas';
   public instrumentList: Array<any> = new Array<any>();
   public data: GradesList[] = [];
-
+  @Output() onFilterChange: EventEmitter<any> = new EventEmitter();
+  public instrument_Id = 1;
   constructor(public trinityService: TrinityService) { }
 
   ngOnInit() {
     this.trinityService.GetInstruments({}).subscribe(res => {
-      console.log(res);
+     this.instrumentList = res;
     })
     this.data = this.getGradesData();
   }
@@ -30,7 +31,7 @@ export class InstrumentComponent implements OnInit {
   getGradesData() : GradesList[]{
     return [
       {
-        name : 'Initiate',
+        name : 'Initial',
         value: 0,
         active: false
       },
@@ -91,5 +92,15 @@ export class InstrumentComponent implements OnInit {
       },
     ]
   }
-
+  onGradeChange(grade: any) {
+    grade.active= !grade.active;
+    this.setFilters();
+  }
+  setFilters() {
+    const model = {
+      instrument_Id: this.instrument_Id,
+      grades: this.data.filter(el => el.active).map(row => row.value).toString()
+    }
+    this.onFilterChange.emit(model);
+  }
 }

@@ -8,9 +8,9 @@ export class TrinityService {
 
 constructor(public http: HttpClient) { }
   GetInstruments(params: any) {
-    return this.http.get(`https://localhost:7111/api/Instrument/GetInstruments`, {params})
+    return this.http.get<Array<any>>(`https://trinityrepertoireapi.azurewebsites.net/api/Instrument/GetInstruments`, {params})
   }
   GetRepertoire(params: any) {
-    return this.http.get(`https://localhost:7111/api/Instrument/GetRepertoire`, {params})
+    return this.http.get<Array<any>>(`https://trinityrepertoireapi.azurewebsites.net/api/Instrument/GetRepertoire`, {params})
   }
 }
