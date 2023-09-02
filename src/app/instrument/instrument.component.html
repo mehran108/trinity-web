@@ -18,7 +18,7 @@
         <div class="grades d-flex flex-column align-items-center">
           <span>{{grades}}</span>
           <ul class="m-0 p-0 d-flex align-items-center list-unstyled">
-            <li *ngFor="let i of data" class="{{i.classname}}">
+            <li (click)="i.active=!i.active" *ngFor="let i of data" [class.active]="i.active">
               {{i.name}}
             </li>
           </ul>

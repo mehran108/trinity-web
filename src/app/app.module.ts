@@ -8,9 +8,10 @@ import { InstrumentComponent } from './instrument/instrument.component';
 import { ListComponent } from './list/list.component';
 import { ListCardComponent } from './list/list-card/list-card.component';
 import { FooterComponent } from './footer/footer.component';
-
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [				
+  declarations: [
     AppComponent,
       HeaderComponent,
       InstrumentComponent,
@@ -20,7 +21,10 @@ import { FooterComponent } from './footer/footer.component';
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

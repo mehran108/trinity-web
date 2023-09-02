@@ -1,24 +1,29 @@
 <div class="card-wrapper d-flex align-items-start" *ngFor="let i of cardData">
-  <img src="{{i.mainimg}}" alt="" class="img-start">
+  <img src="{{i.image}}" alt="" class="img-start">
   <div class="card-content">
     <div class="card-content-top d-flex align-items-center justify-content-between">
       <div class="card-top-left">
         <h2>{{i.title}}</h2>
-        <span>{{i.subtitle}}</span>
+        <span>{{i.composer}}</span>
       </div>
       <div class="card-top-right d-flex flex-column align-items-center">
-        <button class="btn {{i.btnclassname}}">{{i.btntext}}</button>
+        <ng-container *ngIf="i.label1_Text">
+          <button *ngIf="i.label1_Text" [style]="{'background': i.label1_colour}" class="btn">{{i.label1_Text}}</button>
+        </ng-container>
+        <ng-container *ngIf="i.label2_Text">
+          <button [style]="{'background': i.label1_colour}" class="btn">{{i.label2_Text}}</button>
+        </ng-container>
       </div>
     </div>
     <div class="card-content-bottom d-flex align-items-center justify-content-between">
       <div class="card-bottom-left">
-        <span>{{i.titlesyllabus}} <a href="#">{{i.titlesyllabusanchor}}</a></span>
-        <span>{{i.titlebook}} <a href="#">{{i.titlebookanchor}}</a></span>
-        <span>{{i.titlenumber}}</span>
+        <span>Syllabus: <a href="{{i.syllabus_URL}}"> {{i.syllabus}} </a></span>
+        <span>Book <a href="{{i.book_URL}}"> {{i.book}} </a></span>
+        <span>Catalogue Number: {{i.catalogue}}</span>
       </div>
       <div class="card-botttom-right d-flex align-items-center">
-       <img src="{{i.spotifyimg}}" alt="">
-       <img src="{{i.youtubeimg}}" alt="">
+       <a *ngIf="i.spotify_URL" [href]="i.spotify_URL"><img src="assets/images/logo1.png" alt=""></a>
+       <a *ngIf="i.youTube_URL" [href]="i.youTube_URL"><img src="assets/images/logo2.png" alt=""></a>
       </div>
     </div>
   </div>

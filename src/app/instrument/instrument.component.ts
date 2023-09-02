@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { TrinityService } from '../trinity.service';
 
-export interface gradesList {
+export interface GradesList {
   name: string;
-  classname: string;
+  value: number;
+  active: boolean;
 }
 
 @Component({
@@ -11,66 +13,81 @@ export interface gradesList {
   styleUrls: ['./instrument.component.css']
 })
 export class InstrumentComponent implements OnInit {
-  instrument = "Instrument";
-  grades = "Grades / Diplomas"; 
+  instrument = 'Instrument';
+  grades = 'Grades / Diplomas';
+  public instrumentList: Array<any> = new Array<any>();
+  public data: GradesList[] = [];
 
-  public data: gradesList[] = [];
-
-  constructor() { }
+  constructor(public trinityService: TrinityService) { }
 
   ngOnInit() {
+    this.trinityService.GetInstruments({}).subscribe(res => {
+      console.log(res);
+    })
     this.data = this.getGradesData();
   }
 
-  getGradesData() : gradesList[]{
+  getGradesData() : GradesList[]{
     return [
       {
-        name : "Initiat",
-        classname: ""
+        name : 'Initiate',
+        value: 0,
+        active: false
       },
       {
-        name : "1",
-        classname: ""
+        name : '1',
+        value: 1,
+        active: false
       },
       {
-        name : "2",
-        classname: "active"
+        name : '2',
+        value: 2,
+        active: false
       },
       {
-        name : "3",
-        classname: ""
+        name : '3',
+        value: 3,
+        active: false
       },
       {
-        name : "4",
-        classname: ""
+        name : '4',
+        value: 4,
+        active: false
       },
       {
-        name : "5",
-        classname: ""
+        name : '5',
+        value: 5,
+        active: false
       },
       {
-        name : "6",
-        classname: ""
+        name : '6',
+        value: 6,
+        active: false
       },
       {
-        name : "7",
-        classname: ""
+        name : '7',
+        value: 7,
+        active: false
       },
       {
-        name : "8",
-        classname: ""
+        name : '8',
+        value: 8,
+        active: false
       },
       {
-        name : "ATCL",
-        classname: "static-width"
+        name : 'ATCL',
+        value: 9,
+        active: false
       },
       {
-        name : "LTCL",
-        classname: "static-width"
+        name : 'LTCL',
+        value: 10,
+        active: false
       },
       {
-        name : "FTCL",
-        classname: "static-width"
+        name : 'FTCL',
+        value: 11,
+        active: false
       },
     ]
   }
