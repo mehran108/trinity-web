@@ -1,26 +1,18 @@
 <section class="instrument-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="instrument d-flex flex-column align-items-center justify-content-center">
-          <span>{{instrument}}</span>
-          <select [(ngModel)]="instrument_Id" [ngModelOptions]="{standalone: true}" class="form-select">
-            <option *ngFor="let ins of instrumentList" [value]="ins.instrument_Id">{{ins.instrumentName}}</option>
-          </select>
-        </div>
-      </div>
+  <div class="d-flex flex-column align-items-center">
+    <div class="instrument d-flex flex-column">
+      <span>{{instrument}}</span>
+      <select [(ngModel)]="instrument_Id" [ngModelOptions]="{standalone: true}" class="form-select">
+        <option *ngFor="let ins of instrumentList" [value]="ins.instrument_Id">{{ins.instrumentName}}</option>
+      </select>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="grades d-flex flex-column align-items-center">
-          <span>{{grades}}</span>
-          <ul class="m-0 p-0 d-flex align-items-center list-unstyled">
-            <li (click)="onGradeChange(i)" *ngFor="let i of data" [class.active]="i.active">
-              {{i.name}}
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="grades d-flex flex-column">
+      <span>{{grades}}</span>
+      <ul class="m-0 p-0 d-flex flex-wrap align-items-center list-unstyled">
+        <li (click)="onGradeChange(i)" *ngFor="let i of data" [class.active]="i.active">
+          {{i.name}}
+        </li>
+      </ul>
     </div>
   </div>
 </section>

@@ -1,7 +1,7 @@
-<div class="card-wrapper d-flex align-items-start" *ngFor="let i of cardData">
+<div class="card-wrapper d-flex align-items-start flex-column flex-lg-row" *ngFor="let i of cardData">
   <img src="{{i.image}}" alt="" class="img-start">
   <div class="card-content">
-    <div class="card-content-top d-flex align-items-center justify-content-between">
+    <div class="card-content-top d-flex align-items-center justify-content-between flex-column flex-lg-row">
       <div class="card-top-left">
         <h2>{{i.title}}</h2>
         <span>{{i.composer}}</span>
