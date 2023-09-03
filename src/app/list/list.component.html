@@ -1,15 +1,21 @@
-<div class="container-fluid pt-4 pb-5 mb-5">
-  <div class="row">
-    <div class="col-md-6 col-lg-4">
-      <app-instrument (onFilterChange)="fetchData($event)"></app-instrument>
-      <div class="d-flex align-items-center justify-content-center list-input">
-        <input (input)="onFilter($event.target)" type="text" placeholder="Search by composer or title..." name="" id="">
+<section class="list-section pt-4 pb-5 ">
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <div class="col-md-6 col-lg-4">
+        <section class="left-wrapper">
+          <app-instrument (onFilterChange)="fetchData($event)"></app-instrument>
+          <div class="d-flex align-items-center justify-content-center list-input">
+            <input (input)="onFilter($event.target)" type="text" placeholder="Filter by composer or title..." name=""
+              id="">
+          </div>
+        </section>
+      </div>
+      <div class="col-md-6 col-lg-8">
+        <section class="list-wrapper">
+          <span class="choose" *ngIf="!filters">Choose your instrument and grade(s).</span>
+          <app-list-card [filters]="filters"></app-list-card>
+        </section>
       </div>
     </div>
-    <div class="col-md-6 col-lg-8">
-      <section class="list-wrapper">
-        <app-list-card [filters]="filters"></app-list-card>
-      </section>
-    </div>
   </div>
-</div>
+</section>

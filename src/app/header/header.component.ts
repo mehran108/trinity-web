@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  headerTitle = "Repertoire Lists";
+  headerTitle = "Explore Repertoire";
   constructor() { }
 
   ngOnInit() {

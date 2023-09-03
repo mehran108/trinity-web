@@ -4,7 +4,7 @@
     <div class="card-content-top d-flex align-items-center justify-content-between flex-column flex-lg-row">
       <div class="card-top-left">
         <h2>{{i.title}}</h2>
-        <span>{{i.composer}}</span>
+        <span>Composer: {{i.composer}}</span>
       </div>
       <div class="card-top-right d-flex flex-column align-items-center">
         <ng-container *ngIf="i.label1_Text">
@@ -18,7 +18,7 @@
     <div class="card-content-bottom d-flex align-items-center justify-content-between">
       <div class="card-bottom-left">
         <span>Syllabus: <a href="{{i.syllabus_URL}}" target="_blank"> {{i.syllabus}} </a></span>
-        <span>Book <a href="{{i.book_URL}}" target="_blank"> {{i.book}} </a></span>
+        <span>Book: <a href="{{i.book_URL}}" target="_blank"> {{i.book}} </a></span>
         <span>Catalogue Number: {{i.catalogue}}</span>
       </div>
       <div class="card-botttom-right d-flex align-items-center">
