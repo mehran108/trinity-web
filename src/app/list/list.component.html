@@ -5,7 +5,7 @@
         <section class="left-wrapper">
           <app-instrument (onFilterChange)="fetchData($event)"></app-instrument>
           <div class="d-flex align-items-center justify-content-center list-input">
-            <input (input)="onFilter($event.target)" type="text" placeholder="Filter by composer or title..." name=""
+            <input [(ngModel)]="searchString" (ngModelChange)="onFilter($event)" type="text" placeholder="Filter by composer or title..." name=""
               id="">
           </div>
         </section>

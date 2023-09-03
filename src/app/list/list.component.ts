@@ -9,6 +9,7 @@ import { ListCardComponent } from './list-card/list-card.component';
 })
 export class ListComponent implements OnInit {
   public filters: any;
+  public searchString!: string;
   @ViewChild(ListCardComponent) card!: ListCardComponent;
   ngOnInit() {
   }
@@ -16,13 +17,13 @@ export class ListComponent implements OnInit {
     this.filters = {...filters};
   }
   onFilter(searchString: any) {
-    if (searchString.value && searchString.value.length > 2) {
+    if (searchString && searchString.length > 2) {
       const tempList = [...this.card.cardTempData];
       if (this.card && this.card.cardData) {
-        const filteredList = tempList.filter(el => el.title_Composer ? el.title_Composer?.toLocaleLowerCase().indexOf(searchString.value.toLocaleLowerCase()) > -1: true);
+        const filteredList = tempList.filter(el => el.title_Composer ? el.title_Composer?.toLocaleLowerCase().indexOf(searchString.toLocaleLowerCase()) > -1: true);
         this.card.cardData = [...filteredList];
       }
-    } else if (searchString.value) {
+    } else {
       this.card.cardData = [...this.card.cardTempData];
     }
   }
